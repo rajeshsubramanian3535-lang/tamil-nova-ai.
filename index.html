@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>TamilNova AI - Tamil to English Tutor</title>
+    
+    <!-- Mobile App Settings & Full-Screen (PWA) Support -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="TamilNova AI" />
+    <meta name="theme-color" content="#4f46e5" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='25' fill='%234f46e5'/%3E%3Ctext y='62' x='50' font-size='42' font-family='sans-serif' font-weight='bold' fill='white' text-anchor='middle'%3Eத%3C/text%3E%3C/svg%3E" />
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='25' fill='%234f46e5'/%3E%3Ctext y='62' x='50' font-size='42' font-family='sans-serif' font-weight='bold' fill='white' text-anchor='middle'%3Eத%3C/text%3E%3C/svg%3E" />
+  </head>
+  <body class="bg-slate-50 dark:bg-slate-950 antialiased selection:bg-indigo-100 dark:selection:bg-indigo-950">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        const registerSW = () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then((reg) => {
+              console.log('TamilNova AI Service Worker registered:', reg.scope);
+              // Ensure service worker updates are applied immediately
+              reg.onupdatefound = () => {
+                const installingWorker = reg.installing;
+                if (installingWorker) {
+                  installingWorker.onstatechange = () => {
+                    if (installingWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                      console.log('New service worker content is available; please refresh.');
+                    }
+                  };
+                }
+              };
+            })
+            .catch((err) => console.warn('TamilNova AI Service Worker registration failed:', err));
+        };
+
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+          registerSW();
+        } else {
+          window.addEventListener('load', registerSW);
+        }
+      }
+    </script>
+  </body>
+</html>
+

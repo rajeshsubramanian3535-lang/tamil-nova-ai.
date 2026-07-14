@@ -1,0 +1,6 @@
+{
+  "name": "TamilNova AI",
+  "description": "Tamil to English AI Tutor with interactive scenarios, speech-to-text, and grammar coaching.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
