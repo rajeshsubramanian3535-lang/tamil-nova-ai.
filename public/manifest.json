@@ -14,13 +14,13 @@
   ],
   "icons": [
     {
-      "src": "/icon-192.png",
+      "src": "https://tmpfiles.org/dl/wHwN1RjYOIyf/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/icon-512.png",
+      "src": "https://tmpfiles.org/dl/wXw11ijFOdjf/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
@@ -28,14 +28,14 @@
   ],
   "screenshots": [
     {
-      "src": "/screenshot-wide.png",
+      "src": "https://tmpfiles.org/dl/wGw61IjdOz3P/screenshot-wide.png",
       "sizes": "1280x720",
       "type": "image/png",
       "form_factor": "wide",
       "label": "TamilNova AI Tutor - Desktop View"
     },
     {
-      "src": "/screenshot-narrow.png",
+      "src": "https://tmpfiles.org/dl/wiwb1mjWOEYE/screenshot-narrow.png",
       "sizes": "720x1280",
       "type": "image/png",
       "form_factor": "narrow",
