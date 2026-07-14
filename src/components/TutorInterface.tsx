@@ -48,6 +48,18 @@ const DIALECT_MAPS: Record<string, Record<"American" | "British" | "Australian" 
 };
 
 // Helper function to adapt dialect English translation words
+export function getApiBaseUrl(): string {
+  const hostname = typeof window !== "undefined" ? window.location.hostname : "";
+  if (
+    hostname === "localhost" ||
+    hostname === "127.0.0.1" ||
+    hostname.includes("run.app")
+  ) {
+    return "";
+  }
+  return "https://ais-pre-zulqijk5qvsoycwul4rhkx-557594679061.asia-southeast1.run.app";
+}
+
 export function adaptDialect(text: string, dialect: "American" | "British" | "Australian" | "Indian"): string {
   let modifiedText = text;
   Object.keys(DIALECT_MAPS).forEach((word) => {
@@ -582,7 +594,8 @@ export default function TutorInterface({ scenario, isMuted = false, customScenar
     setMessages((prev) => [...prev, userMsg]);
 
     try {
-      const response = await fetch("/api/translate", {
+      const baseUrl = getApiBaseUrl();
+      const response = await fetch(`${baseUrl}/api/translate`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
